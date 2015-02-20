@@ -1,0 +1,36 @@
+/*
+* Spokane Club Basketball Stats
+*/
+body{
+  font-family:'Lato',sans-serif;
+  font-weight:400;
+  font-size:15;
+
+}
+
+footer{
+  font-family:'Lato',sans-serif;
+  font-size:15px;
+  text-align:center;
+  border:1px solid;
+}
+
+.input{
+  height:800px;
+}
+
+.logo{
+  margin-top:40px;
+  margin-bottom:40px;
+  text-align:center;
+}
+
+.navbar{
+  padding:20px;
+  padding-bottom:0px;
+  border-radius:0px;
+}
+
+.navbar .navbar-brand{
+  font-weight:bold;
+}
