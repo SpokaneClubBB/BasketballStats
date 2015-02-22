@@ -1,0 +1,22 @@
+.navbar{
+  padding:15px;
+  padding-bottom:5px;
+  border-radius:0px;
+}
+
+.navbar .navbar-brand{
+  font-size:13px;
+  font-weight:bold;
+  color: #ffffff;
+}
+
+.top-buffer {
+	padding:3px;
+}
+
+.btn-lg {
+  font-size: 21px;
+  line-height: 2.8;
+  border-radius: 5px;
+}
+
