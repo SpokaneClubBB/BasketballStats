@@ -58,5 +58,5 @@ function targetPlayer(index) {
 }
 
 function leavePage() {
-	document.location.href = "header.php";
+	document.location.href = "index.php";
 }
