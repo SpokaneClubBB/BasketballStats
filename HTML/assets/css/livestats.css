@@ -14,6 +14,14 @@
 	padding:3px;
 }
 
+.controls {
+	padding:10px;
+}
+
+.undo {
+	padding:100px;
+}
+
 .btn-lg {
   font-size: 21px;
   line-height: 2.8;
