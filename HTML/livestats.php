@@ -59,15 +59,32 @@
 			<div class="row" id="controls_row">
 
 				<div class="col-sm-3 col-md-3 col-lg-3" id="team1col">			  		
-					<div class="row top-buffer" id="buttons1r0"></div>
+					<div class="row top-buffer" id="team1b0"></div>
 		  		</div>
 
 				<div class="col-sm-1 col-md-1 col-lg-1" id="control_left"></div>
-				<div class="col-sm-4 col-md-4 col-lg-4 text-center" id="control_center"></div>
+				<div class="col-sm-4 col-md-4 col-lg-4 text-center" id="control_center">
+					<div class="row top-buffer" id="controlrow0"></div>
+					<div class="row top-buffer" id="controlrow1">					
+						<div class="btn-group" role="group" aria-label="...">
+						  <button type="button" class="btn btn-default">+1</button>
+						  <button type="button" class="btn btn-default">+2</button>
+						  <button type="button" class="btn btn-default">+3</button>
+						</div>
+					</div>
+
+					<div class="row top-buffer" id="controlrow2">					
+						<div class="btn-group" role="group" aria-label="...">
+						  <button type="button" class="btn btn-default">assist</button>
+						  <button type="button" class="btn btn-default">rebound</button>
+						  <button type="button" class="btn btn-default">steal</button>
+						</div>
+					</div>
+				</div>
 				<div class="col-sm-1 col-md-1 col-lg-1" id="control_right"></div>
 
 				<div class="col-sm-3 col-md-3 col-lg-3" id="team2col">		  		
-					<div class="row top-buffer" id="buttons2r0"></div>
+					<div class="row top-buffer" id="team2b0"></div>
 		  		</div>
 
 	  		</div>
@@ -121,8 +138,8 @@
 	            <h3>Would you like to save your changes?</h3>
 	          </div>
 	          <div class="modal-footer">
-	            <button type="button" class="btn btn-default" data-dismiss="modal">Discard Changes</button>
-	            <button type="button" class="btn btn-primary">Save</button>
+	            <button type="button" class="btn btn-default" onclick="leavePage()" data-dismiss="modal">Discard Changes</button>
+	            <button type="button" class="btn btn-primary" onclick="leavePage()" >Save</button>
 	          </div>
 	        </div>
 	      </div>
@@ -147,11 +164,11 @@
             team1[4] = new Array("Kyle Wyler", 0, 0, 0, 0)
 
             var team2 = new Array()
-            team2[0] = new Array("Inanot Nahtan", 0, 0, 0, 0)
-            team2[1] = new Array("Auom Ynot", 0, 0, 0, 0)
-            team2[2] = new Array("Ztluhcs Hsoj", 0, 0, 0, 0)
-            team2[3] = new Array("Emagnilrub Dnalel", 0, 0, 0, 0)
-            team2[4] = new Array("Snyle", 0, 0, 0, 0)
+            team2[0] = new Array("Robert Lippman", 0, 0, 0, 0)
+            team2[1] = new Array("Jared Tikker", 0, 0, 0, 0)
+            team2[2] = new Array("Houston Stockton", 0, 0, 0, 0)
+            team2[3] = new Array("Spencer Bishop", 0, 0, 0, 0)
+            team2[4] = new Array("Jordan Tampien", 0, 0, 0, 0)
 
 		     $(document).ready(function(){
 				for (var i = 0; i < team1.length; i++) {
@@ -164,8 +181,8 @@
 					table.appendChild(tr)
 
 			    	var button = '<button type="button" class="btn btn-lg btn-block" onclick="targetPlayer(' + i + ')" data-toggle="button" aria-pressed="false" autocomplete="off" >' + team1[i][0] + '</button>';				
-					$('#buttons1r'+i).append(button);
-			      	$('#team1col').append('<div class="row top-buffer" id="buttons1r' + (i+1) + '"></div>');
+					$('#team1b'+i).append(button);
+			      	$('#team1col').append('<div class="row top-buffer" id="team1b' + (i+1) + '"></div>');
 				}	
 				for (var i = 0; i < team2.length; i++) {
 				    var tr = document.createElement('TR');
@@ -177,9 +194,9 @@
 					table.appendChild(tr)
 
 			    	var button = '<button type="button" class="btn btn-lg btn-block" onclick="targetPlayer(' + (i+team1.length) + ')" data-toggle="button" aria-pressed="false" autocomplete="off">' + team2[i][0] + '</button>';				
-					$('#buttons2r'+i).append(button);
+					$('#team2b'+i).append(button);
 
-			      	$('#team2col').append('<div class="row top-buffer" id="buttons2r' + (i+1) + '"></div>');
+			      	$('#team2col').append('<div class="row top-buffer" id="team2b' + (i+1) + '"></div>');
 				}		
 
 			});
@@ -192,7 +209,11 @@
 					player = team2[index-team1.length][0];
 				}
 
-				$('#control_center').html(player);
+				$('#controlrow0').html(player);
+			}
+
+			function leavePage() {
+				document.location.href = "header.php";
 			}
 		</script>
 		<!--##################END OF JAVASCRIPT##################-->
