@@ -53,8 +53,8 @@
 	            <h3>Some Login stuff</h3>
 	          </div>
 	          <div class="modal-footer">
-	            <button type="button" class="btn btn-default" onclick="leavePage()" data-dismiss="modal">Cancel</button>
-	            <button type="button" class="btn btn-primary" onclick="leavePage()" >Login</button>
+	            <button type="button" class="btn btn-default" onclick="#" data-dismiss="modal">Cancel</button>
+	            <button type="button" class="btn btn-primary" onclick="#">Login</button>
 	          </div>
 	        </div>
 	      </div>

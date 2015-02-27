@@ -21,11 +21,12 @@
   padding-top:42px; 
 }
 
+
 .bodynav{
   margin-top:10px;
   padding-top:0px;
   padding-bottom:0px;
-  border-radius:0px;
+  /*border-radius:0px;*/
 }
 
 .bodynav .brandtitle {

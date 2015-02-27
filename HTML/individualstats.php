@@ -1,4 +1,4 @@
-<?php include_once 'header.php';?>
+<?php require_once 'header.php';?>
 
 <html lang="en">
 	<head>
@@ -21,7 +21,7 @@
 	</head>
 	<body id="player_body">
 
-		<div class="container stats" id="averagestats">
+		<div class="container-fluid" id="averagestats">
 			<div class="row">
 			<!-- this is not good, but I couldn't find out how to get just 2 columns centered, so I put 4 columns total so the spacing looks good-->
 			     <div class="col-sm-0 col-md-2 col-lg-3"></div>
@@ -55,32 +55,23 @@
 			</div>
 		</nav>
 
+		<!-- Stats for Player per Season + a row for Career Totals-->
 		<div class="container">
 			<table class="table table-hover" id="game_stats">
 				<thead>
 					<tr >
-						<th>
-							Season
-						</th>
-						<th>
-							Points
-						</th>
-						<th>
-							Rebounds
-						</th>
-						<th>
-							Assists
-						</th>
-						<th>
-							Steals
-						</th>
+						<th>Season</th>
+						<th>Points</th>
+						<th>Rebounds</th>
+						<th>Assists</th>
+						<th>Steals</th>
 					</tr>
 				</thead>
 				<tbody id="pstats_body">
 					<tr> 
 						<td>1</td>
 						<td>222</td>
-						<td>3081</td>
+						<td>2821</td>
 						<td>296</td>
 						<td>152</td>
 					</tr>
@@ -91,11 +82,17 @@
 						<td>290</td>
 						<td>151</td>
 					</tr>
+					<tr> 
+						<td>Career</td>
+						<td>442</td>
+						<td>3081+2821</td>
+						<td>586</td>
+						<td>303</td>
+					</tr>
 
 			  	</tbody>						
   			</table>	
 		</div>
-
 
 		<!--Navbar Past Games-->
 		<nav class="navbar navbar-inverse bodynav">
@@ -121,25 +118,16 @@
 			</div>
 		</nav>
 
+		<!-- Game History Table for Player -->
 		<div class="container">
 			<table class="table table-hover" id="past_games">
 				<thead>
 					<tr >
-						<th>
-							Date
-						</th>
-						<th>
-							Points
-						</th>
-						<th>
-							Rebounds
-						</th>
-						<th>
-							Assists
-						</th>
-						<th>
-							Steals
-						</th>
+						<th>Date</th>
+						<th>Points</th>
+						<th>Rebounds</th>
+						<th>Assists</th>
+						<th>Steals</th>
 					</tr>
 				</thead>
 				<tbody id="log_body">
@@ -162,8 +150,8 @@
 		</div>
 
 
-
 	</body>
+
 </html>
 
-<?php include_once 'footer.php';?>
+<?php require_once('footer.php');?>
