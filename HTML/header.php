@@ -1,9 +1,3 @@
-<?php
-		require "dbConnection.php";
-		require "dbFunctionsEWUSCBB.php";
-?>
-
-
 <html lang="en">
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700|Oswald:400,700|Open+Sans' rel='stylesheet' type='text/css'>
@@ -33,76 +27,51 @@
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
 							<span class="sr-only">Toggle Navigation</span>
 							<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-						<a class="navbar-brand" href="#page-top">Basketball Stats</a>
+						<a class="navbar-brand" href="index.php">Basketball Stats</a>
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li class="space"><a href="#">Schedule and Scores</a></li>
+							<li class="space"><a href="livestats.php">Schedule and Scores</a></li>
 							<li class="space"><a href="#">League Leaders</a></li>
-							<li class="active space"><a href="#">Player Stats</a></li>
-							<li class="space"><a href="#">Team Stats</a></li>
+							<li class="active space"><a href="individualstats.php">Player Stats</a></li>
+							<li class="space"><a href="#" data-toggle="modal" data-target="#login_modal" >Team Stats</a></li>
 						</ul>
 					</div>
 				</div>
+			</div>
 		</nav>
 
-		<div class="scoreboard">
-			<div class="container">
-				<div class="row" style="border:1px solid;border-color:#2f2f2f">
-					<div class="" style="text-align:center;font-size:60px">Scoreboard</div>
-				</div>
-			</div>
-		</div>
-		<br>
-<center>
-		<table name= "stats" border = "2">
-	
-		<th>FIRST NAME</th>
-		<th>LAST NAME</th>
-		<th>GAMES PLAYED</th>
-		<th>POINTS</th>
-		<th>FGM</th>
-		<th>FGA</th>
-		<th>3PM</th>
-		<th>3PA</th>
-		<th>FTM</th>
-		<th>FTA</th>
-		<th>ASSIST</th>
-		<th>STEALS</th>
-		<th>REBOUNDS</th>
-		<th>BLOCKS</th>
-		
-	<?php 
-	
-		$result = getAllStats($link);
-	?>	
+		<!-- Login modal, or do we want to have login be a separate page? -->
+	    <div class="modal" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="exit_modal" aria-hidden="true">
+	      <div class="modal-dialog">
+	        <div class="modal-content">
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	            <h4 class="modal-title" id="modalLabel">Admin Login</h4>
+	          </div>
+	          <div class="modal-body">
+	            <h3>Some Login stuff</h3>
+	          </div>
+	          <div class="modal-footer">
+	            <button type="button" class="btn btn-default" onclick="leavePage()" data-dismiss="modal">Cancel</button>
+	            <button type="button" class="btn btn-primary" onclick="leavePage()" >Login</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
 
-	<?php foreach ($result as $key => $row): ?>
 
-			
-			<tr>
-			<td><?php echo $row['First Name']; ?></td>
-			<td><?php echo $row['Last Name']; ?></td>
-			<td><?php echo $row['Games Played']; ?></td>
-			<td><?php echo $row['Points']; ?></td>
-			<td><?php echo $row['FGM']; ?></td>
-			<td><?php echo $row['FGA']; ?></td>
-			<td><?php echo $row['3PM']; ?></td>
-			<td><?php echo $row['3PA']; ?></td>
-			<td><?php echo $row['FTM']; ?></td>
-			<td><?php echo $row['FTA']; ?></td>
-			<td><?php echo $row['Assists']; ?></td>
-			<td><?php echo $row['Steals']; ?></td>
-			<td><?php echo $row['Rebounds']; ?></td>
-			<td><?php echo $row['Blocks']; ?></td>
 
-			</tr>
-		
-		
-	<?php endforeach ?>
- 
-	</table>
+	    <!--load javascript-->
+	    <script src="https://code.jquery.com/jquery.js"></script>
+	    <script src="assets/js/bootstrap.min.js"></script>
+		<!-- testing javascript stuff here #TEMPORARY-->
 
-</center>
+		<!--##################END OF JAVASCRIPT##################-->
+		<!--                           	  
+                 -->
 
+
+	</body>
+</html>
 

@@ -1,0 +1,44 @@
+#playerinfo {
+  border:1px solid;
+  font-size:30px;
+  font-weight:bold;
+}
+
+#avgplayerstats {
+  border:1px solid;
+  font-size:30px;
+  font-weight:bold;
+}
+
+.bodynav .dropdown-toggle {
+  margin-top:9px;
+  font-size: 12px;
+  width:100;
+  border-radius: 1px;
+}
+
+.top-buffer {
+  padding-top:42px; 
+}
+
+.bodynav{
+  margin-top:10px;
+  padding-top:0px;
+  padding-bottom:0px;
+  border-radius:0px;
+}
+
+.bodynav .brandtitle {
+  font-size:20px;
+}
+
+#past_games {
+  margin-bottom:200px;
+}
+/*
+.col-centered{
+    float: none;
+    margin: 0 auto;
+    display: inline-block;
+}
+*/
