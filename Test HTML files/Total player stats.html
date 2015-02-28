@@ -43,7 +43,7 @@
 		
 		<div id="content">
 
-		<table>
+		<table id = "playerStats" onclick = "showPlayer(event)">
 		  <?php while($row = $result->fetch()) { ?>
 		  <tr>
 			<td><?php echo $row['First_Name']; ?></td>
@@ -69,7 +69,14 @@
 		</table>
 
 		</div>
-		
+		<!--javascript function for displaying clicked cells row(individual play stats-->
+		<script>
+			function indStat(e)
+			{
+				alert(e.target.innerText);
+				alert(e.target.parentnode.innerText);
+			}
+		</script>
 	</body>
 
 </html>
