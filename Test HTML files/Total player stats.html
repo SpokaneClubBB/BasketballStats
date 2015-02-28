@@ -1,0 +1,77 @@
+<?php require_once 'header.php';?>
+
+<html lang="en">
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700|Oswald:400,700|Open+Sans' rel='stylesheet' type='text/css'>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Spokane Club recreational basketball league individual player statistics">
+		<meta name="author" content="Leland Burlingame">
+
+		<title>Spokane Club</title>
+
+		<!-- Bootstrap CSS -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<!-- Specific CSS -->
+		<link href="assets/css/main.css" rel="stylesheet">
+		<link href="assets/css/individualstats.css" rel="stylesheet">
+
+	</head>
+	<body id="player_stats_body">
+
+		<!-- Hacked out code to display the total stats (with the per game averages included).  No bootstrap implementation with this one. 
+			Will work on testing this out, then adding clickable values, then bootstrap implementation-->
+			
+		<?php
+			$link = new mysqli('localhost', 'root', '', 'ewuscbb');
+		?>
+		<?php
+			//grab stats for all player
+			function getAllStats($mysqli)
+			{
+				$stmt = "select First_Name, Last_Name, Games_Played, round(Points/Games_Played, 2) as PPG, 	FGM, FGA, round(FGM/FGA, 2) as FGP, TPM, TPA, round(TPM/TPA, 2) as TPP, 	FTM, FTA, round(FTM/FTA, 2) as FTP, round(Assists/Games_Played, 2) as APG, 	round(Rebounds/Games_Played, 2) as RPG, round(Blocks/Games_Played, 2) as BPG, 	round(Steals/Games_Played, 2) as SPG 
+						from Player_Stats natural join Player_Info`";
+				
+				$stmt = $mysqli->prepare($stmt);
+				$stmt->execute();
+				$result = stmt_get_assoc($stmt);
+				return $result;
+			}
+		?>
+		
+		<div id="content">
+
+		<table>
+		  <?php while($row = $result->fetch()) { ?>
+		  <tr>
+			<td><?php echo $row['First_Name']; ?></td>
+			<td><?php echo $row['Last_Name']; ?></td>
+			<td><?php echo $row['Games_Played']; ?></td>
+			<td><?php echo $row['PPG']; ?></td>
+			<td><?php echo $row['FGM']; ?></td>
+			<td><?php echo $row['FGA']; ?></td>
+			<td><?php echo $row['FGP']; ?></td>
+			<td><?php echo $row['TPM']; ?></td>
+			<td><?php echo $row['TPA']; ?></td>
+			<td><?php echo $row['TPP']; ?></td>
+			<td><?php echo $row['FTM']; ?></td>
+			<td><?php echo $row['FTA']; ?></td>
+			<td><?php echo $row['FTP']; ?></td>
+			<td><?php echo $row['APG']; ?></td>
+			<td><?php echo $row['RPG']; ?></td>
+			<td><?php echo $row['BPG']; ?></td>
+			<td><?php echo $row['SPG']; ?></td>
+			
+		  </tr>
+		  <?php } ?>
+		</table>
+
+		</div>
+		
+	</body>
+
+</html>
+
+<?php require_once('footer.php');?>
