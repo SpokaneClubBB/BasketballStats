@@ -1,3 +1,4 @@
+
 #playerinfo {
   border:1px solid;
   font-size:30px;
@@ -29,6 +30,7 @@
   /*border-radius:0px;*/
 }
 
+
 .bodynav .brandtitle {
   font-size:20px;
 }
@@ -36,10 +38,38 @@
 #past_games {
   margin-bottom:200px;
 }
-/*
-.col-centered{
-    float: none;
-    margin: 0 auto;
-    display: inline-block;
+
+
+.leadcol{
+  text-align: center;
+  margin-left:20px;
+  margin-bottom:20px;
+  display:inline-block;
+  float:none;
+  margin-right:-4px;
 }
-*/
+
+.table{
+  background-color: #f2f2f2;
+}
+
+.bord{
+
+    margin-top:10px;
+    border: #333 medium solid;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+.col_header{
+  background-color: #808080;
+  margin:15px;
+  font-size: 18px;
+}
+
+.col_header a{
+  color:white;
+}
+
+
