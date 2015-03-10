@@ -3,7 +3,17 @@
 		require "dbConnection.php";
 		require "dbFunctionsEWUSCBB.php";
 ?>
+<!-- Testing - Hiding th and td-->
+<style>
 
+th:first-child, td:first-child {
+    display: none;
+}
+
+td:nth-child(1){
+   display:none;
+}
+</style>
 <html>
 	<body>
 
@@ -21,7 +31,7 @@
 			<table class="table table-hover" id="stats">
 				<thead>
 					<tr >
-
+						<th>Player ID</th>
 						<th>FIRST NAME</th>
 						<th>LAST NAME</th>
 						<th>GAMES PLAYED</th>
@@ -47,7 +57,8 @@
 				<tbody>
 					<?php foreach ($result as $key => $row): ?>
 							<tr>
-								<td><?php echo $row['First Name']; ?></td>
+								<td><?php echo $row['pid']; ?></td>
+								<td><a href="#"><?php echo $row['First Name']; ?></a></td>
 								<td><?php echo $row['Last Name']; ?></td>
 								<td><?php echo $row['Games Played']; ?></td>
 								<td><?php echo $row['Points']; ?></td>
