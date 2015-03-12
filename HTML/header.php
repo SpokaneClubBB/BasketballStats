@@ -14,11 +14,17 @@
 		<link href="assets/css/bootstrap.css" rel="stylesheet">
 		<!-- Specific CSS -->
 		<link href="assets/css/main.css" rel="stylesheet">
+		
+
+		<!--js-->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="assets/js/navpage.js"></script>
 	</head>
 	<body id="page-top">
 		<!--Navbar-->
 		<nav class="navbar navbar-inverse">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row logo">
 					<a class="" href="http://www.spokaneclub.org"><img class="image-responsive" style="margin-top:-7px" src="assets/img/scsmall.png"></img></a>
 				</div>
@@ -30,18 +36,26 @@
 						<a class="navbar-brand" href="index.php">Basketball Stats</a>
 					</div>
 					<div class="navbar-collapse collapse">
-						<ul class="nav navbar-nav navbar-right">
-							<li class="space"><a href="livestats.php">Schedule and Scores</a></li>
-							<li class="space"><a href="#">League Leaders</a></li>
-							<li class="active space"><a href="individualstats.php">Player Stats</a></li>
-							<li class="space"><a href="#" data-toggle="modal" data-target="#login_modal" >Team Stats</a></li>
+						<ul class="nav navbar-nav navbar-right" id="main_nav">
+
 						</ul>
+						
 					</div>
 				</div>
 			</div>
 		</nav>
 
+		<!-- Scrolling scoreboard -->
+		<div class="scoreboard">
+			<div class="container-fluid">
+				<div class="row" style="border:1px solid;border-color:#2f2f2f">
+					<div class="" style="text-align:center;font-size:60px">Scoreboard</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- Login modal, or do we want to have login be a separate page? -->
+		
 	    <div class="modal" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="exit_modal" aria-hidden="true">
 	      <div class="modal-dialog">
 	        <div class="modal-content">
@@ -63,7 +77,6 @@
 
 
 	    <!--load javascript-->
-	    <script src="https://code.jquery.com/jquery.js"></script>
 	    <script src="assets/js/bootstrap.min.js"></script>
 		<!-- testing javascript stuff here #TEMPORARY-->
 

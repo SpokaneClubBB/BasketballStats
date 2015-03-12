@@ -5,6 +5,8 @@ body{
   font-family:'Lato',sans-serif;
   font-weight:400;
   font-size:15;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
 
 }
 
@@ -47,3 +49,27 @@ footer{
  overflow: auto;
 }
 
+@media(min-width:840px) {
+    body{
+      padding-left: 6%;
+      padding-right:6%;
+    }
+}
+@media(min-width:992px) {
+    body{
+      padding-left: 8%;
+      padding-right:8%;
+    }
+}
+@media(min-width:1200px) {
+    body{
+      padding-left: 10%;
+      padding-right:10%;
+    }
+}
+@media(min-width:1400px) {
+    body{
+      padding-left: 12%;
+      padding-right:12%;
+    }
+}

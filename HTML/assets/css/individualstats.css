@@ -50,7 +50,7 @@
 }
 
 .table{
-  background-color: #f2f2f2;
+  background-color: #fffefe;
 }
 
 .bord{
@@ -68,8 +68,41 @@
   font-size: 18px;
 }
 
-.col_header a{
+
+#team_leaders a{
+  color:black;
+}
+
+#player_leaders a{
+  color:black;
+}
+
+#player_leaders .col_header a{
+  color:white;
+}
+
+#team_leaders .col_header a{
   color:white;
 }
 
 
+#league_info_main a{
+  color:black;
+}
+#league_info_main .col_header a{
+  color:white;
+}
+#ps_pergame a{
+  color:black;
+}
+#ps_season a{
+  color:black;
+}
+
+#standings a{
+  color:black;
+}
+
+.table_headers{
+  font-weight: bold;
+}
