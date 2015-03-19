@@ -5,28 +5,28 @@
 	//player based leaders
 	
 	$db = new PDO('sqlite:assets/db/ewuscbb.db');
-	$ppg = $db->query('select ps.First_Name, ps.Last_Name, Team, round(Points/Games_Played, 1) as PPG
+	$ppg = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, round(Points/Games_Played, 1) as PPG
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name 
 			order by PPG desc
 			limit 5');
-	$apg = $db->query('select ps.First_Name, ps.Last_Name, Team, round(Assists/Games_Played, 1) as APG
+	$apg = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, round(Assists/Games_Played, 1) as APG
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name 
 			order by APG desc
 			limit 5');
-	$rpg = $db->query('select ps.First_Name, ps.Last_Name, Team, round(Rebounds/Games_Played, 1) as RPG
+	$rpg = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, round(Rebounds/Games_Played, 1) as RPG
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name 
 			order by RPG desc
 			limit 5');
-	$spg = $db->query('select ps.First_Name, ps.Last_Name, Team, round(Steals/Games_Played, 1) as SPG
+	$spg = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, round(Steals/Games_Played, 1) as SPG
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name 
 			order by SPG desc
 			limit 5');
 
 	//team based leaders
-	$tppg = $db->query('select Team, round(Points/Games_Played, 1) as PPG from Team_Stats order by PPG desc');
-	$tapg = $db->query('select Team, round(Assists/Games_Played, 1) as APG from Team_Stats order by APG desc');
-	$trpg = $db->query('select Team, round(Rebounds/Games_Played, 1) as RPG from Team_Stats order by RPG desc');
-	$tspg = $db->query('select Team, round(Steals/Games_Played, 1) as SPG from Team_Stats order by SPG desc');
+	$tppg = $db->query('select Team, round(Points/Games_Played, 1) as PPG from Team_Stats order by PPG desc limit 5');
+	$tapg = $db->query('select Team, round(Assists/Games_Played, 1) as APG from Team_Stats order by APG desc limit 5');
+	$trpg = $db->query('select Team, round(Rebounds/Games_Played, 1) as RPG from Team_Stats order by RPG desc limit 5');
+	$tspg = $db->query('select Team, round(Steals/Games_Played, 1) as SPG from Team_Stats order by SPG desc limit 5');
 	//league standings
 	$standings = $db->query('select Team, Games_Played, Wins, Losses, round(Wins*1.0/Games_Played,3) as pw from Team_Stats order by pw desc');
 
@@ -48,7 +48,7 @@
 		    foreach($ppg as $row)
 		    {
 		      print "<tr><td>".$i."</td>";
-		      print "<td><a href='#'>".$row['First_Name']." ".$row['Last_Name']."</a></td>";
+		      print "<td><a href = player_indi_stats.php?id=".$row['Player_ID'].">".$row['First_Name']." ".$row['Last_Name']."</a></td>";
 		      print "<td>Team ".$row['Team']."</td>";
 		      print "<td><b>".$row['PPG']."</b></td></tr>";
 		      $i++;
@@ -72,7 +72,7 @@
 		    foreach($apg as $row)
 		    {
 		      print "<tr><td>".$i."</td>";
-		      print "<td><a href ='#'>".$row['First_Name']." ".$row['Last_Name']."</a></td>";
+		      print "<td><a href = player_indi_stats.php?id=".$row['Player_ID'].">".$row['First_Name']." ".$row['Last_Name']."</a></td>";
 		      print "<td>Team ".$row['Team']."</td>";
 		      print "<td><b>".$row['APG']."</b></td>";
 		      $i++;
@@ -96,7 +96,7 @@
 		    foreach($rpg as $row)
 		    {
 		      print "<tr><td>".$i."</td>";
-		      print "<td><a href='#'>".$row['First_Name']." ".$row['Last_Name']."</a></td>";
+		      print "<td><a href = player_indi_stats.php?id=".$row['Player_ID'].">".$row['First_Name']." ".$row['Last_Name']."</a></td>";
 		      print "<td>Team ".$row['Team']."</td>";
 		      print "<td><b>".$row['RPG']."</b></td></tr>";
 		      $i++;
@@ -118,7 +118,7 @@
 		    foreach($spg as $row)
 		    {
 		      print "<tr><td>".$i."</td>";
-		      print "<td><a href='#'>".$row['First_Name']." ".$row['Last_Name']."</a></td>";
+		      print "<td><a href = player_indi_stats.php?id=".$row['Player_ID'].">".$row['First_Name']." ".$row['Last_Name']."</a></td>";
 		      print "<td>Team ".$row['Team']."</td>";
 		      print "<td><b>".$row['SPG']."</b></td>";
 		      $i++;

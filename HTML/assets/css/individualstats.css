@@ -2,13 +2,11 @@
 #playerinfo {
   border:1px solid;
   font-size:30px;
-  font-weight:bold;
 }
 
 #avgplayerstats {
   border:1px solid;
   font-size:30px;
-  font-weight:bold;
 }
 
 .bodynav .dropdown-toggle {
@@ -38,7 +36,6 @@
 #past_games {
   margin-bottom:200px;
 }
-
 
 .leadcol{
   text-align: center;

@@ -32,8 +32,8 @@
 						<a class="navbar-brand brandtitle" href="#">League Leaders</a>
 					</div>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="space active" id="player_"><a href="#" onClick="leaderUpdate('player_')">Players</a></li>
-						<li class="space" id="team_"><a href="#" onClick="leaderUpdate('team_')">Teams</a></li>
+						<li class="space active" id="player_"><a onClick="leaderUpdate('player_')">Players</a></li>
+						<li class="space" id="team_"><a onClick="leaderUpdate('team_')">Teams</a></li>
 					</ul>
 				</div>
 			</div>

@@ -1,4 +1,16 @@
-<?php require_once 'header.php';?>
+<?php 	
+	require_once 'header.php';
+	require_once 'assets/php/player_indi_stats_query.php';
+	if((int)$_GET["id"]==0){
+		print "<div class = 'container'>
+				<div class = 'text-center'>
+					<h1>Not a valid player</h1>
+				</div>
+			   </div>";
+		
+	}
+		
+?>
 
 <html lang="en">
 	<head>
@@ -8,15 +20,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Spokane Club recreational basketball league individual player statistics">
-		<meta name="author" content="Leland Burlingame">
+		<meta name="author" content="Nathan Tonani">
 
 		<title>Spokane Club</title>
 
-		<!-- Bootstrap CSS -->
-		<link href="assets/css/bootstrap.css" rel="stylesheet">
-		<!-- Specific CSS -->
-		<link href="assets/css/main.css" rel="stylesheet">
+		<!-- page spec css -->
 		<link href="assets/css/individualstats.css" rel="stylesheet">
+		<!-- pergame vs season js-->
+		<script src="assets/js/playerstats_statdeterm.js"></script>
 
 	</head>
 	<body id="player_body">
@@ -26,13 +37,16 @@
 			<!-- this is not good, but I couldn't find out how to get just 2 columns centered, so I put 4 columns total so the spacing looks good-->
 			     <div class="col-sm-0 col-md-2 col-lg-3"></div>
 			     <div class="col-sm-6 col-md-4 col-lg-3" id="playerinfo">
-     				
+			     	<div class = "text-center">
+     					<?php getPlayerInfo() ?>
+     				</div>
 			     </div>
 			     <div class="col-sm-6 col-md-4 col-lg-3" id="avgplayerstats">
-     				<div class="row">PTS 10.5</div>
-     				<div class="row">REB 2.1</div>
-     				<div class="row">AST 6.3</div>
-     				<div class="row">STL 23.1</div>
+			     	<div class = "col">
+			     		<div class = "text-center">
+	     					<?php getSeasonOverview() ?>
+	     				</div>
+	     			</div>
 			     </div>
   			     <div class="col-sm-0 col-md-2 col-lg-3"></div>
 		    </div>
@@ -46,58 +60,76 @@
 						<a class="navbar-brand brandtitle">Player Stats</a>
 					</div>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="space active" id="pergame_"><a href="#" onClick="leaderUpdate('per_')">PER GAME</a></li>
-						<li class="space" id="totals_"><a href="#" onClick="leaderUpdate('season_')">TOTALS</a></li>
+						<li class="space active" id="pergame_"><a onClick="leaderUpdate('per_')">PER GAME</a></li>
+						<li class="space" id="totals_"><a onClick="leaderUpdate('season_')">TOTALS</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-		<!-- Stats for Player per Season + a row for Career Totals-->
-		<div class="container">
-			<table class="table table-hover" id="game_stats">
+		<div class="container-fluid" id = "ps_pergame" style = "display:show">
+			<table class="table table-condensed" id="game_stats">
 				<thead>
 					<tr >
 						<th>Season</th>
-						<th>Points</th>
-						<th>Rebounds</th>
-						<th>Assists</th>
-						<th>Steals</th>
+						<th>PTS</th>
+						<th>FGM</th>
+						<th>FGA</th>
+						<th>FG%</th>
+						<th>TPM</th>
+						<th>TPA</th>
+						<th>TP%</th>
+						<th>FTM</th>
+						<th>FTA</th>
+						<th>FT%</th>
+						<th>AST</th>
+						<th>STL</th>
+						<th>REB</th>
+						<th>BLK</th>
 					</tr>
 				</thead>
 				<tbody id="pstats_body">
-					<tr> 
-						<td>1</td>
-						<td>222</td>
-						<td>2821</td>
-						<td>296</td>
-						<td>152</td>
-					</tr>
-					<tr> 
-						<td>2</td>
-						<td>220</td>
-						<td>3081</td>
-						<td>290</td>
-						<td>151</td>
-					</tr>
-					<tr> 
-						<td>Career</td>
-						<td>442</td>
-						<td>3081+2821</td>
-						<td>586</td>
-						<td>303</td>
-					</tr>
-
+					<?php getPerGame() ?>
 			  	</tbody>						
   			</table>	
 		</div>
 
-		<!--Navbar Past Games-->
+		<div class="container-fluid" id="ps_season" style="display:none">
+			<table class="table table-condensed" id="season_stats">
+				<thead>
+					<tr >
+						<th>Season</th>
+						<th>GP</th>
+						<th>PTS</th>
+						<th>FGM</th>
+						<th>FGA</th>
+						<th>FG%</th>
+						<th>TPM</th>
+						<th>TPA</th>
+						<th>TP%</th>
+						<th>FTM</th>
+						<th>FTA</th>
+						<th>FT%</th>
+						<th>AST</th>
+						<th>STL</th>
+						<th>REB</th>
+						<th>BLK</th>
+					</tr>
+				</thead>
+				<tbody id="pstats_body">
+					<?php getPerSeason() ?>
+			  	</tbody>						
+  			</table>	
+		</div>
+
+
+
+				<!--Navbar Past Games-->
 		<nav class="navbar navbar-inverse bodynav">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="navbar-header">
-						<a class="navbar-brand brandtitle">GAME LOGS</a>
+						<a class="navbar-brand brandtitle">Game Logs</a>
 					</div>
 					<ul class="nav navbar-nav navbar-right">
 						<div class="dropdown">
@@ -115,41 +147,5 @@
 				</div>
 			</div>
 		</nav>
-
-		<!-- Game History Table for Player -->
-		<div class="container">
-			<table class="table table-hover" id="past_games">
-				<thead>
-					<tr >
-						<th>Date</th>
-						<th>Points</th>
-						<th>Rebounds</th>
-						<th>Assists</th>
-						<th>Steals</th>
-					</tr>
-				</thead>
-				<tbody id="log_body">
-					<tr> 
-						<td>1/29/15</td>
-						<td>22</td>
-						<td>308</td>
-						<td>29</td>
-						<td>15</td>
-					</tr>
-					<tr> 
-						<td>2/2/15</td>
-						<td>0</td>
-						<td>10</td>
-						<td>11</td>
-						<td>19</td>
-					</tr>
-			  	</tbody>						
-  			</table>	
-		</div>
-
-
 	</body>
-
-</html>
-
-<?php require_once('footer.php');?>
+	<?php require_once 'footer.php';?>

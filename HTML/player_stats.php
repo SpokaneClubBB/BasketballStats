@@ -31,8 +31,8 @@
 						<a class="navbar-brand brandtitle">Player Stats</a>
 					</div>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="space active" id="pergame_"><a href="#" onClick="leaderUpdate('per_')">PER GAME</a></li>
-						<li class="space" id="totals_"><a href="#" onClick="leaderUpdate('season_')">TOTALS</a></li>
+						<li class="space active" id="pergame_"><a onClick="leaderUpdate('per_')">PER GAME</a></li>
+						<li class="space" id="totals_"><a onClick="leaderUpdate('season_')">TOTALS</a></li>
 					</ul>
 				</div>
 			</div>
@@ -108,6 +108,6 @@
 	</body>
 </html>
 
-<?php require_once 'footer.php';
+<?php require_once 'footer.php';?>
 
 
