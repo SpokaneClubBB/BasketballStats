@@ -1,0 +1,21 @@
+Team Stats (Total)
+select Team, Games_Played, Wins, Losses, round(Points/Games_Played, 2) as PPG, round(FGM/FGA, 2) as FGP, 
+round(TPM/TPA, 2) as ‘3PP’, 
+round(FTM/FTA, 2) as FTP, round(Assists/Games_Played, 2) as APG, round(Rebounds/Games_Played, 2) as RPG, round(Blocks/Games_Played, 2) as BPG, round(Steals/Games_Played, 2) as SPG 
+from Team_Stats
+order by Wins desc
+
+
+Team Stats (Individual)
+select Team, Games_Played, Wins, Losses, round(Points/Games_Played, 2) as PPG, round(FGM/FGA, 2) as FGP, 
+round(TPM/TPA, 2) as ‘3PP’, 
+round(FTM/FTA, 2) as FTP, round(Assists/Games_Played, 2) as APG, round(Rebounds/Games_Played, 2) as RPG, round(Blocks/Games_Played, 2) as BPG, round(Steals/Games_Played, 2) as SPG 
+from Team_Stats 
+where Team = ‘teamname’  <-- clicked from prior table
+
+
+
+
+
+
+
