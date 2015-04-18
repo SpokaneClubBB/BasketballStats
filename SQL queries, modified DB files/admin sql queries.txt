@@ -1,0 +1,72 @@
+SQLite Queries for admin data input.  All values in the examples will be replaced by the user inputted values.
+
+
+Adding a new player:
+
+insert into Player_Info (First_Name, Last_Name, Number, Position, Team)
+values('Josh', 'Schultz', 3, 'C', 7)
+
+insert into Player_Stats(First_Name, Last_Name)
+values('Josh', 'Schultz')
+
+* if first player added to a team/if new team is created before adding players
+
+insert into Team_Stats(Team, Games_Played, Wins, Losses)
+values(7, 0, 0, 0)
+
+
+
+Inserting/editing values into game stats:
+
+*if row values are empty, which will be in most cases
+
+insert into player_game_stats(Player_ID, Game_ID, Points, FGM, FGA, TPM, TPA, FTM, FTA, Assists, Steals, Rebounds, Blocks)
+values((select Player_ID from Player_Info where First_Name = 'Tom', Last_Name = 'Capaul'), 1, 30, 4, 6, 6, 10, 5, 8, 11, 3, 6, 2)
+
+update player_Stats
+set Games_Played = Games_Played + 1, Points = Points + 30, FGM = FGM + 4, FGA = FGA + 6, TPM = TPM + 6, TPA = TPA + 10, FTM = FTM + 5, FTA = FTA + 8, Assists = Assists + 11, Steals = Steals + 3, Rebounds = Rebounds + 6, Blocks = Blocks + 2
+where First_Name = 'Tom' and Last_Name = 'Capaul'
+
+*if user needs to edit values to player game stats (values aren't empty)
+
+update player_game_stats
+set(points =  30,FGM = 4,FGA = 6,TPM = 6,TPA = 10,FTM = 5,FTA = 8,Assists = 11,Steals = 3,Rebounds = 6,Blocks = 2)
+where Player_ID = (select Player_ID from Player_Info where First_Name = 'Tom', Last_Name = 'Capaul') and Game_ID = 1
+
+update player_Stats
+set Games_Played = Games_Played + 1, Points = Points + 30, FGM = FGM + 4, FGA = FGA + 6, TPM = TPM + 6, TPA = TPA + 10, FTM = FTM + 5, FTA = FTA + 8, Assists = Assists + 11, Steals = Steals + 3, Rebounds = Rebounds + 6, Blocks = Blocks + 2
+where First_Name = 'Tom' and Last_Name = 'Capaul'
+
+*if team game stats are null (1st player entered)
+
+update Team_Game_Stats
+set PointsFor = 30, FGM = 4, FGA = 6, TPM = 6, TPA = 10, FTM = 5, FTA = 8, Assists = 11, Steals = 3, Rebounds = 6, Blocks = 2
+where Game_ID = 2 and Team = 2
+
+update Team_Game_Stats
+set PointsAgst = 30
+where Game_ID = 2 and Opponent = 2
+
+update Team_Stats
+set Games_Played = 1, Points = 30, FGM = 4, FGA = 6, TPM = 6, TPA = 10, FTM = 5, FTA = 8, Assists = 11, Steals = 3, Rebounds = 6, Blocks = 2
+where Team = 2
+
+
+*if team game stats/team stats are not null
+
+update Team_Game_Stats
+set PointsFor = PointsFor + 30, FGM = FGM + 4, FGA = FGA + 6, TPM = TPM + 6, TPA = TPA + 10, FTM = FTM + 5, FTA = FTA + 8, Assists = Assists + 11, Steals = Steals + 3, Rebounds = Rebounds + 6, Blocks = Blocks + 2
+where Game_ID = 2 and Team = 2
+
+update Team_Game_Stats
+set PointsAgst = PointsAgst + 30
+where Game_ID = 2 and Opponent = 2
+
+update Team_Stats
+set Games_Played = Games_Played + 1, Points = Points + 30, FGM = FGM + 4, FGA = FGA + 6, TPM = TPM + 6, TPA = TPA + 10, FTM = FTM + 5, FTA = FTA + 8, Assists = Assists + 11, Steals = Steals + 3, Rebounds = Rebounds + 6, Blocks = Blocks + 2
+where Team = 2
+
+
+
+
+
