@@ -5,7 +5,7 @@
 	//player based leaders
 
 	$db = new PDO('sqlite:assets/db/ewuscbb.db');
-	$ppg = $db->query('select ps.First_Name, ps.Last_Name, Team, round(Points/Games_Played, 1) as PPG
+	$ppg = $db->query('select  ps.First_Name, ps.Last_Name, Team, round(Points/Games_Played, 1) as PPG
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name
 			order by PPG desc
 			limit 5');
@@ -34,35 +34,35 @@
 	$schedule = $db->query("select Home, Away, Date, Time from Schedule where Date >= date() order by Date asc");
 
 	//top ten player based leaders
-	$ppg10 = $db->query('select ps.First_Name, ps.Last_Name, Team, round(Points/Games_Played, 1) as PPG
+	$ppg10 = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, round(Points/Games_Played, 1) as PPG
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name
 			order by PPG desc
 			limit 10');
-	$apg10 = $db->query('select ps.First_Name, ps.Last_Name, Team, round(Assists/Games_Played, 1) as APG
+	$apg10 = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, round(Assists/Games_Played, 1) as APG
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name
 			order by APG desc
 			limit 10');
-	$rpg10 = $db->query('select ps.First_Name, ps.Last_Name, Team, round(Rebounds/Games_Played, 1) as RPG
+	$rpg10 = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, round(Rebounds/Games_Played, 1) as RPG
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name
 			order by RPG desc
 			limit 10');
-	$spg10 = $db->query('select ps.First_Name, ps.Last_Name, Team, round(Steals/Games_Played, 1) as SPG
+	$spg10 = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, round(Steals/Games_Played, 1) as SPG
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name
 			order by SPG desc
 			limit 10');
-	$bpg10 = $db->query('select ps.First_Name, ps.Last_Name, Team, round(Blocks/Games_Played, 1) as BPG
+	$bpg10 = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, round(Blocks/Games_Played, 1) as BPG
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name
 			order by BPG desc
 			limit 10');
-	$tpp10 = $db->query('select ps.First_Name, ps.Last_Name, Team, (100*(round(TPM/TPA, 1))) as TPP
+	$tpp10 = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, (100*(round(TPM/TPA, 1))) as TPP
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name
 			order by TPP desc
 			limit 10');
-	$ftp10 = $db->query('select ps.First_Name, ps.Last_Name, Team, (100*(round(FTM/FTA, 1))) as FTP
+	$ftp10 = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, (100*(round(FTM/FTA, 1))) as FTP
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name
 			order by FTP desc
 			limit 10');
-	$fgp10 = $db->query('select ps.First_Name, ps.Last_Name, Team, (100*(round(FGM/FGA, 1))) as FGP
+	$fgp10 = $db->query('select pi.Player_ID, ps.First_Name, ps.Last_Name, Team, (100*(round(FGM/FGA, 1))) as FGP
 			from Player_Stats as ps left outer join Player_Info as pi on ps.First_Name = 	pi.First_Name and ps.Last_Name = pi.Last_Name
 			order by FGP desc
 			limit 10');

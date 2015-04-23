@@ -3,8 +3,11 @@
 	if(isset($_COOKIE["loggedin"]) && $_COOKIE["loggedin"]==1)
 		{
 			//If you're logged in then redirect you to the landing page.
-			//header( 'Location: index.php' );
-		}		 
+			header( 'Location: admin_main.php' );
+		}		
+			
+			require 'dbConnection';
+			require 'dbFunctions.php'; 
 
 ?>
 
@@ -13,8 +16,7 @@
 			<?php
 
 				$loggedin = '';
-				$link = new mysqli('localhost', 'root', '', 'ewuscbb');
-				require 'dbFunctionsEWUSCBB.php';
+				
 				$query = $link->prepare("SELECT * from user where username = ?");
 				$query->bind_param("s", $_POST["username"]);
 				$query->execute();
@@ -45,7 +47,7 @@
 				//Set cookies to signify login, then redirect to landing page.
 				setcookie("loggedin", "1");
 				setcookie("username", $_POST["username"]);
-				header( 'Location: index.php' );
+				header( 'Location: admin_main.php' );
 
 			?>
 
