@@ -4,15 +4,15 @@ SQLite Queries for admin data input.  All values in the examples will be replace
 Adding a new player:
 
 insert into Player_Info (First_Name, Last_Name, Number, Position, Team)
-values('Josh', 'Schultz', 3, 'C', 7)
+values('FirstName', 'LastName', number, 'postition', ‘teamname)
 
-insert into Player_Stats(First_Name, Last_Name)
-values('Josh', 'Schultz')
+insert into Player_Stats(First_Name, Last_Name, Games_Played, Points, FGM, FGA, TPM, TPA, FTM, FTA, Assists, Steals, Rebounds, Blocks )
+values('FirstName', 'LastName', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 * if first player added to a team/if new team is created before adding players
 
 insert into Team_Stats(Team, Games_Played, Wins, Losses)
-values(7, 0, 0, 0)
+values(‘teamname, 0, 0, 0)
 
 
 
