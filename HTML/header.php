@@ -76,7 +76,7 @@
 	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 	            <h4 class="modal-title" id="modalLabel">Sign in</h4>
 	          </div>
-  	          <form class="form-signin" action ="admin_verification.php" method ="post">
+  	          <form class="form-signin" action ="admin_login.php" method ="post">
 		          <div class="modal-body">
 	                <input type="text"  name ="username" class = "form-control" placeholder="Username" required autofocus><br>
 	                <input type="password" name = "password" class = "form-control" placeholder="Password" required><br>
