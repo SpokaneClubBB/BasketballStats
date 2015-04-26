@@ -1,6 +1,12 @@
-<?php 	
-	require_once 'header.php';
-	require_once 'assets/php/admin_queries.php';
+<?php   
+
+	if(isset($_COOKIE["loggedin"]) && $_COOKIE["loggedin"]== 0) {
+			//If you're logged in then redirect you to the landing page.
+			header( 'Location: index.php' );
+	}		
+    require_once 'header.php';
+    require_once 'assets/php/admin_queries.php';
+
 	if((int)$_GET["id"]==0){
 		print "<div class = 'container'>
 				<div class = 'text-center'>
@@ -9,7 +15,8 @@
 			   </div>";
 		
 	}
-
+	
+	require_once 'get_game_stats.php';
 ?>
 
 <html lang="en">
@@ -52,7 +59,6 @@
 					</tr>
 				</thead>
 				<tbody id="home_body">
-					<?php getHomeStats(); ?>
 			  	</tbody>						
   			</table>
 		</div>
@@ -76,15 +82,18 @@
 					</tr>
 				</thead>
 				<tbody id="away_body">
-					<?php getAwayStats(); ?>
 			  	</tbody>						
   			</table>
 		</div>
+
+		<ul></ul>
+
 		
+		<!-- javascript -->
 	    <script src="https://code.jquery.com/jquery.js"></script>
-		<script src="assets/js/admin.js"> </script>
+	    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="admin_edit_game.js"></script>
 
 	</body>
 </html>
 
-		

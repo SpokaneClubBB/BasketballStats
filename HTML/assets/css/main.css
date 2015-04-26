@@ -34,6 +34,19 @@ footer{
   border-radius:0px;
 }
 
+
+#login_link{
+  font-weight:bold;
+  font-size:10px;
+  color: #6E6E6E;
+}
+
+#logout_link{
+  font-weight:bold;
+  font-size:10px;
+  color: #6E6E6E;
+}
+
 .navbar .navbar-brand{
   font-weight:bold;
   font-size:20px;
@@ -48,6 +61,11 @@ footer{
 .modal-open {
  overflow: auto;
 }
+
+#login_modal .modal-dialog  {
+  max-width: 450px;
+}
+
 
 @media(min-width:840px) {
     body{

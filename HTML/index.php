@@ -16,6 +16,7 @@
 		<title>Spokane Club</title>
 
 		<!-- page spec css -->
+		
 		<link href="assets/css/individualstats.css" rel="stylesheet">
 
 		<!-- team/player leaders js -->
