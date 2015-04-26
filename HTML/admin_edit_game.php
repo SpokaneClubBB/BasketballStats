@@ -16,7 +16,7 @@
 		
 	}
 	
-	require_once 'get_game_stats.php';
+	require_once 'assets/php/get_game_stats.php';
 ?>
 
 <html lang="en">
