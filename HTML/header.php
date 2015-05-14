@@ -1,4 +1,9 @@
+
 <html lang="en">
+	<?php
+		require_once 'season_list.php';
+	?>
+	
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700|Oswald:400,700|Open+Sans' rel='stylesheet' type='text/css'>
 
@@ -48,6 +53,35 @@
 							<span class="sr-only">Toggle Navigation</span>
 							<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 						<a class="navbar-brand" href="index.php">Basketball Stats</a>
+						<div class="dropdown">
+						  <button class="btn btn-default dropdown-toggle" type="button" id="season_dropdown" data-toggle="dropdown" aria-expanded="true">
+						    Seasons
+						    <span class="caret"></span>
+						  </button>
+							<script>
+							function setDB(str)
+							{
+								$.post("new_db.php", {change: $(this).val()}, function(str)
+								{
+									$("#dropdown").html(str);
+								});
+							}
+							</script>
+						  <ul class="dropdown-menu" role="menu">
+						    <?php 	$i = 1;
+									foreach($season_list as $value)
+									{$tag = "Season " . $i; 
+									 //$connection = "sqlite:assets/db/ewuscbb" . $i . ".db"; 
+									 $connection = $season_list[$i]?>
+							<script>
+								var theConn = <?php echo(json_encode($connection)); ?>; 
+							</script>
+						    <li role="presentation"><a role="menuitem" id = '<? $connection ?>' tabindex="-1" onclick "setDB(theConn)" href ="index.php"><?php echo $tag ;?></a></li>
+							<?$i++;
+							 } ?>
+						  </ul>
+						</div>
+						  </a>
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right" id="main_nav">
