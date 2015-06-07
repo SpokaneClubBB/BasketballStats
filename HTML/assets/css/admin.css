@@ -1,0 +1,95 @@
+#control_panel {
+    position: fixed;
+    top: 250px;
+    left: 17%;
+}
+
+
+.control {
+	width: 200px;
+	margin-bottom: 25px;
+	display:block;
+}
+
+.glyphicon {
+	margin-right: 5px;
+}
+
+#remove_selected {
+	width:200px;
+	text-align: center;
+	font-weight: bold;
+	display:block;
+}
+
+.player_select {
+    width: 200px;
+}
+
+
+.players_select select { 
+}
+
+.players_container {
+	margin-left: 25px;
+	margin-right: 25px;
+    margin-bottom: 50px;
+    width:200px;
+}
+
+
+.to_team {
+	width: 100%;
+ 	text-align: center;
+	font-weight: bold;
+
+}
+
+#add_team {
+	margin-top: 18px;
+	font-size: 163px;
+	width:200px;
+	font-weight: bold;
+	background-color: #f6f6f6;
+	border:none;
+}
+.container .teams {
+	margin-top: 2000px;
+}
+
+#add_team:focus {
+	outline:0;
+	background-color: #dbdbdb;
+
+}
+
+
+.scroll {
+	display: block;
+	margin-top: 320px;
+}
+
+.search_box {
+	width:200px;
+	display:block;
+	margin-bottom: 5px;
+}
+
+
+
+table#seasons tr .removeSeason span { 
+	display:none;
+	float:right;
+
+}
+table#seasons tr:hover .removeSeason span {
+	display:inline-block;
+}
+
+table#seasons .add_row:hover {
+    background-color: white;
+}
+
+table#seasons {
+	table-layout: fixed;
+}

@@ -6,6 +6,7 @@
 	}		
     require_once 'header.php';
     require_once 'assets/php/admin_queries.php';
+    //require_once 'assets/php/create_seasons.php';
 ?>
 
 <html lang="en">
@@ -21,7 +22,7 @@
 		<title>Spokane Club</title>
 
 		<!-- page spec css -->
-		<link href="assets/css/individualstats.css" rel="stylesheet">
+		<link href="assets/css/admin.css" rel="stylesheet">
 
 	</head>
 	
@@ -45,33 +46,65 @@
 		     	<?php require_once 'admin_nav.php'; ?>
 		        <div class="col-md-10">
 		            <div class="container-fluid" id ="games_container" style="display:hide">
-						<table class="table table-condensed table-hover" id="games_head">
+						<table class="table table-condensed table-hover" id="seasons">
 							<thead>
 								<tr class = "table_headers">
-									<th>Season</th>
-									<th>Start</th>
-									<th>End</th>
+									<th><span class="season">Season</span></th>
+									<th><span class="start">Start</span></th>
+									<th><span class="end">End</span></th>
+									<th><span class="rmv">&nbsp</span></th>
 								</tr>
 							</thead>
-							<tbody id="games_body">
-								<?php getSeasons() ?>
-						  	</tbody>						
+							<tbody id="seasons_body">
+								<?php getSeasonsAdmin() ?>
+						  	</tbody>	
 			  			</table>
 					</div>
+					
 		        </div>
 		    </div>
+	    </div>
+
+
+	     <div class="modal" id="confirmation_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	      <div class="modal-dialog">
+	        <div class="modal-content">
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	            <h4 class="modal-title" id="modalLabel">Remove Season?</h4>
+	          </div>
+	          <div class="modal-body">
+	          </div>
+	          <div class="modal-footer">
+	            <button type="button" class="btn btn-default" onclick="#" data-dismiss="modal">Cancel</button>
+ 				<button type="submit" class="btn btn-default">Delete</button>
+			  </div>
+	        </div>
+	      </div>
 	    </div>
 			
 		
 		<!--js-->
 		<script src="https://code.jquery.com/jquery.js"></script>
 	    <script src="assets/js/bootstrap.min.js"></script>
+    	<script src="assets/js/seasons_admin.js"></script>
+    	<script> 
+			$('.glyphicon-remove').on('click',function(e){
+				$(this).parent().parent().remove();
+				var editid = $(this).parent().parent().attr("id");
+				alert(editid);
+				 
+				$('#confirmation_modal').modal('show');
+			});
+/*
+			$( document ).on( 'click', '.glyphicon-remove', function () {
+			 	$(this).parent().parent().remove();
+				var editid = $(this).parent().parent().attr("id");
+				alert(editid);
 
+			 	$('#confirmation_modal').modal('show');
+			 });*/
+
+    	</script>
 	</body>
 </html>
-
-
-	    <!--
-	<div align="right">
-	<input type="text" id="search" placeholder="filter"></input>
-	</div> -->
